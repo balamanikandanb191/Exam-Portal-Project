@@ -1,0 +1,93 @@
+/* src/components/UI/LoginPromptModal.css */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-content {
+  background-color: var(--bg-primary);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 450px;
+  border: 1px solid var(--border-color);
+  transform: scale(0.9);
+  animation: scaleIn 0.3s ease forwards;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.modal-body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  to { transform: scale(1); }
+}
+
+/* Unga global button.css la illana, idha add pannikonga */
+/* (Unga AccessDashboard.css la irundhu eduthadhu) */
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.9375rem;
+  box-sizing: border-box;
+}
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+}
+.btn-secondary {
+  background-color: var(--bg-secondary-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color-hover);
+}

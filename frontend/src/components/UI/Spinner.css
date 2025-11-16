@@ -1,0 +1,22 @@
+/* src/components/UI/Spinner.css */
+.spinner {
+  border: 3px solid rgba(var(--primary-color-rgb), 0.2);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  animation: spin 1s linear infinite;
+  display: inline-block; /* Aligns with text */
+  vertical-align: middle; /* Aligns with text */
+}
+
+.spinner-small {
+  width: 1rem;  /* 16px */
+  height: 1rem; /* 16px */
+  border-width: 2px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,436 @@
+/* ========================================================================
+ * * ✨ PROFESSIONAL DARK MODE CSS for AdminDashboard ✨
+ * * Theme: "Modern Dark" (Matches Screenshot)
+ * * ✅ ADDED: Styles for dynamic functionality
+ * ======================================================================== */
+
+/* ==========================================
+  Color Palette (Dark Mode)
+  ==========================================
+*/
+:root {
+  /* Dark Theme Colors (From Screenshot) */
+  --bg-primary: #111827; /* Tailwind Gray-900 (Main Background) */
+  --bg-secondary: #1F2937; /* Tailwind Gray-800 (Card Background) */
+  --border-color: #374151; /* Tailwind Gray-700 (Borders/Dividers) */
+  --text-primary: #F9FAFB; /* Tailwind Gray-50 (White) */
+  --text-secondary: #9CA3AF; /* Tailwind Gray-400 (Light Gray) */
+  --text-light: #F8FAFC; /* For buttons */
+
+  /* Accent Colors (Kept from light theme for consistency) */
+  --primary-color: #6366F1; /* Indigo-500 (Brighter for dark bg) */
+  --primary-color-dark: #4F46E5; /* Indigo-600 */
+  --blue-color: #3B82F6;
+  --emerald-color: #10B981;
+  --red-color: #EF4444;
+  
+  /* Light background colors for stats (These are correct as per screenshot) */
+  --bg-indigo-light: #EEF2FF;
+  --bg-blue-light: #EFF6FF;
+  --bg-emerald-light: #ECFDF5;
+  --bg-red-light: #FEF2F2;
+}
+
+/* ==========================================
+  Global Page Styles
+  ==========================================
+*/
+.admin-container {
+  max-width: 90rem; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem; /* p-8 */
+  /* ✅ ADDED: Set body background color */
+  background-color: var(--bg-primary); 
+  color: var(--text-secondary);
+}
+
+.page-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary); /* ✅ Changed */
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700;
+  color: var(--text-primary); /* ✅ Changed */
+  margin-bottom: 1.25rem;
+}
+
+.dashboard-section {
+  margin-top: 3rem; /* mt-16 */
+}
+
+/* ==========================================
+  Layout Grids
+  ==========================================
+*/
+.dashboard-grid-3col,
+.dashboard-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem; /* gap-6 */
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) { /* lg: */
+  .dashboard-grid-3col {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .dashboard-grid-2col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.grid-span-3 {
+  grid-column: span 1 / span 1;
+}
+@media (min-width: 1024px) { /* lg: */
+  .grid-span-3 {
+    grid-column: span 3 / span 3;
+  }
+}
+
+/* ==========================================
+  Base Card Style
+  ==========================================
+*/
+.card {
+  background-color: var(--bg-secondary); /* ✅ Changed */
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color); /* ✅ Changed */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* ✅ Changed */
+  transition: all 0.3s ease-out;
+}
+
+.card-body {
+  padding: 1.5rem; /* p-6 */
+}
+
+/* Card Lighting Effect (Removed as per JSX file comment) */
+.card-lighting-effect {
+  position: relative;
+  overflow: hidden;
+}
+.card-lighting-effect::before {
+  display: none; /* Removed */
+}
+
+
+/* ==========================================
+  Stat Cards (Top Section)
+  ==========================================
+*/
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+  gap: 1.25rem; /* gap-5 */
+}
+
+@media (min-width: 768px) { /* md: */
+  .stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* md:grid-cols-4 */
+  }
+}
+
+/* ✅ Stat cards are light as per screenshot, so this section is correct */
+.stat-card {
+  padding: 1rem; /* p-4 */
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out; /* ✅ Added transition */
+}
+
+/* --- ✅ NEW: Hover effect for clickable stat cards --- */
+.stat-card[style*="cursor: pointer"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  filter: brightness(1.05); /* Slightly brighten */
+}
+
+
+.stat-card.indigo {
+  background-color: var(--bg-indigo-light);
+}
+.stat-card.blue {
+  background-color: var(--bg-blue-light);
+}
+.stat-card.emerald {
+  background-color: var(--bg-emerald-light);
+}
+.stat-card.red {
+  background-color: var(--bg-red-light);
+}
+
+.stat-card-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.stat-card.indigo .stat-card-label { color: var(--primary-color-dark); }
+.stat-card.blue .stat-card-label { color: var(--blue-color); }
+.stat-card.emerald .stat-card-label { color: var(--emerald-color); }
+.stat-card.red .stat-card-label { color: var(--red-color); }
+
+.stat-card-value {
+  font-weight: 700;
+  font-size: 1.875rem; /* text-3xl */
+  margin-top: 0.25rem;
+}
+.stat-card.indigo .stat-card-value { color: var(--primary-color); }
+.stat-card.blue .stat-card-value { color: var(--blue-color); }
+.stat-card.emerald .stat-card-value { color: var(--emerald-color); }
+.stat-card.red .stat-card-value { color: var(--red-color); }
+
+
+/* ==========================================
+  List Cards (Mid & Bottom)
+  ==========================================
+*/
+.list-card-wrapper {
+  padding: 1.5rem;
+  background-color: var(--bg-secondary); /* ✅ Set dark background */
+  border-color: var(--border-color); /* ✅ Set dark border */
+}
+
+.list-card-subtitle {
+  font-weight: 700;
+  color: var(--text-primary); /* ✅ Changed */
+  margin-bottom: 0.75rem;
+}
+
+.list-scroll-container {
+  max-height: 18rem; /* max-h-72 */
+  overflow-y: auto;
+  padding-right: 0.5rem; /* pr-2 */
+}
+.list-scroll-container.queries {
+  max-height: 24rem; /* max-h-96 */
+}
+
+/* ✅ Scrollbar styling for dark mode */
+.list-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+.list-scroll-container::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-radius: 4px;
+}
+.list-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+.list-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color-hover);
+}
+
+
+.styled-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.styled-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 0.25rem; /* py-3.5 */
+  border-top: 1px solid var(--border-color); /* ✅ Changed */
+}
+.styled-list li:first-child {
+  border-top: none;
+}
+
+.list-item-info {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.list-item-title {
+  font-weight: 600;
+  color: var(--text-primary); /* ✅ Changed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary); /* ✅ Changed */
+}
+
+.list-item-meta {
+  font-size: 0.75rem;
+  color: var(--text-secondary); /* ✅ Changed */
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.empty-list-text {
+  color: var(--text-secondary); /* ✅ Changed */
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* ==========================================
+  Query List
+  ==========================================
+*/
+.query-item {
+  padding: 1rem 0.25rem;
+  border-top: 1px solid var(--border-color); /* ✅ Changed */
+  transition: opacity 0.3s ease-out; /* ✅ Added for fade-out (though instant remove is used) */
+}
+.query-item:first-child {
+  border-top: none;
+}
+
+.query-item-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.query-item-content {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.query-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary); /* ✅ Changed */
+  font-style: italic;
+}
+
+.query-meta {
+  font-size: 0.875rem;
+  color: var(--text-secondary); /* ✅ Changed */
+  margin-top: 0.5rem;
+}
+.query-meta strong {
+  color: var(--text-primary); /* ✅ Changed */
+  font-weight: 600;
+}
+
+.query-timestamp {
+  font-size: 0.75rem;
+  color: var(--text-secondary); /* ✅ Changed */
+  margin-top: 0.25rem;
+}
+
+/* ==========================================
+  Buttons
+  ==========================================
+*/
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ Button style from screenshot */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.3);
+}
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.4);
+}
+/* ✅ Disabled state for spinner */
+.btn-primary:disabled {
+  background-color: var(--primary-color-dark);
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+.btn-small {
+  font-size: 0.75rem; /* !text-xs */
+  font-weight: 700; /* !font-bold */
+  flex-shrink: 0;
+  padding: 0.35rem 0.75rem;
+  /* ✅ Set min-width to prevent size jump */
+  min-width: 100px; 
+  min-height: 28px;
+}
+
+/* ==========================================
+  Loaders & Animations
+  ==========================================
+*/
+.loading-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 0; /* py-10 */
+  color: var(--text-secondary); /* ✅ Changed */
+}
+.loading-placeholder.small {
+  padding: 1.25rem 0; /* py-5 */
+}
+
+.loading-placeholder p {
+  margin-top: 0.75rem;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.loading-text {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  color: var(--text-secondary); /* ✅ Changed */
+}
+
+.spinner {
+  width: 2.5rem; /* w-10 */
+  height: 2.5rem; /* h-10 */
+  border: 4px solid var(--border-color); /* ✅ Changed */
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* --- ✅ NEW: Spinner for button --- */
+.spinner.small-btn-spinner {
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+  border-width: 2px;
+  border-top-color: var(--text-light); /* White */
+  border-left-color: var(--text-light);
+  border-bottom-color: var(--text-light);
+  border-right-color: transparent;
+}
+
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out forwards;
+}

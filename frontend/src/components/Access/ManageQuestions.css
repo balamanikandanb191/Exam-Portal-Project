@@ -1,0 +1,299 @@
+/* src/components/Access/ManageQuestions.css */
+/* ✅✅✅ ERROR FIX PANNAPATTADHU (Invalid Characters Removed) ✅✅✅ */
+
+
+/* ==========================================
+  Global Page Styles
+  ==========================================
+*/
+.page-container {
+  max-width: 90rem; /* max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem; /* p-8 */
+}
+
+.page-header {
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.page-title {
+  font-size: 2.25rem; /* text-3xl */
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+.page-subtitle {
+  font-size: 1.25rem; /* text-xl */
+  color: var(--text-secondary);
+}
+
+.highlight-text {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.section-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem; /* mb-5 */
+}
+
+/* ==========================================
+  Page Layout Grid ( 50/50 Split Fix )
+  ==========================================
+*/
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* Mobile la 1 column */
+  gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 1024px) { /* lg: */
+  .page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  }
+}
+
+.form-column {
+  grid-column: span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* space-y-8 */
+}
+
+@media (min-width: 1024px) { /* lg: */
+  .form-column {
+    grid-column: span 1 / span 1; 
+  }
+}
+
+.list-column {
+  grid-column: span 1 / span 1; /* Idhuvum 1 column eduthukkum */
+}
+
+/* ==========================================
+  Base Card Style
+  ==========================================
+*/
+.card {
+  background-color: var(--bg-primary);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem; /* p-6 */
+  transition: all 0.3s ease-out;
+}
+
+/* ==========================================
+  Form Styles
+  ==========================================
+*/
+.form-group {
+  margin-bottom: 1.25rem; /* mb-5 */
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-select {
+  /* box-sizing: border-box; ippo index.css la irundhu varum */
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
+}
+
+textarea.form-input {
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.marks-input {
+  width: 6rem; /* w-24 */
+}
+
+.form-help-text {
+  font-size: 0.75rem; /* text-xs */
+  color: var(--text-secondary);
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+/* Options Input */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* space-y-3 */
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* gap-3 */
+}
+
+.form-radio {
+  width: 1.25rem; /* h-5 w-5 */
+  height: 1.25rem;
+  flex-shrink: 0;
+  accent-color: var(--primary-color);
+}
+
+/* ==========================================
+  Buttons
+  ==========================================
+*/
+/* Ellam ippo index.css la irundhu varum, theva illa */
+
+/* ==========================================
+  Alerts & Loaders
+  ==========================================
+*/
+.alert {
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.alert-danger {
+  background-color: var(--danger-color-light);
+  color: var(--danger-color-hover);
+  border: 1px solid var(--danger-color);
+}
+.alert-success {
+  background-color: var(--success-color-light);
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+}
+
+.loading-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 0;
+  color: var(--text-secondary);
+}
+.loading-placeholder p {
+  margin-top: 0.75rem;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.spinner.small {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-width: 3px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Animation index.css la irukku */
+/* .animate-fadeInUp { ... } */
+
+
+/* ==========================================
+  Question List
+  ==========================================
+*/
+.card-list {
+  padding: 1rem; /* !p-4 */
+  max-height: 800px; /* Adjusted from 600px */
+  overflow-y: auto;
+}
+
+.question-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border-color); /* divide-y */
+}
+
+.question-item {
+  padding: 0.875rem 0.5rem; /* py-3.5 px-2 */
+  border-top: 1px solid var(--border-color);
+}
+.question-item:first-child {
+  border-top: none;
+}
+
+.question-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem; /* gap-3 */
+}
+
+.question-text {
+  flex: 1 1 0%;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.btn-delete {
+  font-size: 0.75rem; /* !text-xs */
+  font-weight: 700; /* !font-bold */
+  flex-shrink: 0;
+  /* Ippo idhu index.css la irundhu varum */
+  /* color: var(--danger-color); */
+  /* background: none; ... */
+}
+
+.options-list-display {
+  list-style: none;
+  margin: 0.5rem 0 0 1rem; /* mt-2 pl-4 */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* space-y-1 */
+}
+
+.option-display {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.option-display.correct {
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+.empty-list-text {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 1rem 0; /* py-4 */
+}

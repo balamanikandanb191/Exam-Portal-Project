@@ -1,0 +1,583 @@
+/* ========================================================================
+ * * ✨ PROFESSIONAL DARK MODE CSS for StudentDashboard ✨
+ * * Theme: "Modern Dark" (Matches Screenshot)
+ * * ✅ FIXED: Removed all invalid characters
+ *
+ * ======================================================================== */
+
+/* ==================================
+ * ✨ 1. ROOT VARIABLES & THEME ✨
+ * (Professional Color Palette)
+ * ==================================
+*/
+:root {
+  --bg-primary: #111827; /* Tailwind Gray-900 (Main Background) */
+  --bg-secondary: #1F2937; /* Tailwind Gray-800 (Card BG) */
+  --bg-secondary-hover: #374151; /* Tailwind Gray-700 (Hover) */
+  --border-color: #374151; /* Tailwind Gray-700 (Borders/Dividers) */
+  --border-color-hover: #4B5563; /* Tailwind Gray-600 */
+  --text-primary: #F9FAFB; /* Tailwind Gray-50 (White) */
+  --text-secondary: #9CA3AF; /* Tailwind Gray-400 (Light Gray) */
+  
+  --primary-color: #6366F1; /* Indigo-500 (Brighter for dark bg) */
+  --primary-color-dark: #4F46E5; /* Indigo-600 */
+  --accent-color: #8B5CF6; /* Violet-500 (Purple for Category) */
+  --accent-color-dark: #7C3AED; /* Violet-600 */
+
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-heavy: rgba(0, 0, 0, 0.2);
+}
+
+/* ==================================
+ * ✨ 2. GLOBAL STYLES ✨
+ * ==================================
+*/
+
+.student-container {
+  max-width: 90rem; 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem; 
+  background-color: var(--bg-primary); 
+  min-height: calc(100vh - 4rem); 
+}
+
+.page-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary); 
+  margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+  font-size: 1.125rem; 
+  color: var(--text-secondary); 
+}
+
+.section-title {
+  font-size: 1.5rem; 
+  font-weight: 700;
+  color: var(--text-primary); 
+  margin-bottom: 1.5rem; 
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-section {
+  margin-bottom: 3rem; 
+}
+
+.student-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem; 
+  gap: 1rem; 
+}
+
+@media (min-width: 768px) { 
+  .student-header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* ==================================
+ * ✨ 3. CARD STYLES ✨
+ * ==================================
+*/
+
+.card {
+  background-color: var(--bg-secondary); 
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color); 
+  box-shadow: 0 4px 6px -1px var(--shadow-color); 
+  transition: all 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 1.25rem; 
+}
+
+.card-hover:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 15px -3px var(--shadow-color-heavy); 
+}
+
+/* Gradient Border */
+.card-hover {
+  position: relative;
+  overflow: hidden; 
+  border: 2px solid transparent; 
+  background-clip: padding-box; 
+}
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -1;
+  margin: -2px; 
+  border-radius: inherit; 
+  background: linear-gradient(to right, var(--border-color), var(--border-color-hover));
+  transition: all 0.3s ease;
+}
+.card-hover:hover::before {
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+}
+
+
+.card-title {
+  font-size: 1.25rem; 
+  font-weight: 700;
+  color: var(--text-primary); 
+  margin-top: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card-title-small {
+  font-size: 1.125rem; 
+  font-weight: 600; 
+  color: var(--text-primary); 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary); 
+  margin-top: 0.375rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  background-color: var(--bg-primary); 
+  color: var(--text-secondary); 
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 0.375rem;
+  letter-spacing: 0.025em; 
+  border: 1px solid var(--border-color);
+}
+
+/* ==================================
+ * ✨ 4. GRID & LAYOUT ✨
+ * ==================================
+*/
+
+.grid-container, .grid-container-2col {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem; 
+}
+
+@media (min-width: 768px) { 
+  .grid-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid-container-2col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) { 
+  .grid-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.empty-placeholder {
+  padding: 2.5rem 1.5rem; 
+  text-align: center;
+  color: var(--text-secondary); 
+  border: 2px dashed var(--border-color); 
+  background-color: var(--bg-secondary); 
+}
+
+.full-span {
+  grid-column: 1 / -1; 
+}
+
+/* ==================================
+ * ✨ 5. COMPONENT-SPECIFIC STYLES ✨
+ * ==================================
+*/
+
+/* --- Mock Test Card --- */
+.test-card .card-content-row {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem; 
+}
+
+.test-category {
+  font-size: 0.875rem; 
+  font-weight: 600;
+  color: var(--accent-color); 
+  text-transform: uppercase;
+  letter-spacing: 0.05em; 
+}
+
+/* --- Buttons --- */
+.btn {
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+}
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.btn-secondary {
+  background-color: var(--bg-secondary-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color-hover);
+}
+.btn-secondary:hover {
+  background-color: var(--border-color);
+  border-color: var(--border-color-hover);
+  transform: translateY(-2px);
+}
+
+.btn-small {
+  padding: 0.35rem 0.75rem; 
+  font-size: 0.8rem; 
+  font-weight: 600;
+}
+
+.btn-start-test {
+  padding: 0.5rem 1.25rem; 
+  font-size: 0.875rem; 
+  flex-shrink: 0;
+  background-color: var(--primary-color); 
+}
+.btn-start-test:hover {
+  background-color: var(--primary-color-dark); 
+}
+
+/* --- Video Card --- */
+.video-card {
+  padding: 0; 
+  overflow: hidden; 
+}
+.video-thumbnail-link {
+  display: block;
+  aspect-ratio: 16 / 9; 
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+.video-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-out;
+}
+.video-card:hover .video-thumbnail-img {
+  transform: scale(1.1); 
+}
+
+/* --- Resource Card --- */
+.resource-card .card-content-row {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem; 
+}
+
+.resource-info-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; 
+  flex: 1; 
+  min-width: 0;
+}
+
+.resource-card .card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.resource-link {
+  flex-shrink: 0;
+  margin-left: auto; 
+  padding-left: 1rem; 
+  text-decoration: none; 
+}
+.resource-link span {
+  display: inline-block;
+  transition: transform 0.2s ease-out;
+}
+.resource-link:hover span {
+  transform: translateX(4px);
+}
+
+
+/* Resource Icon Styles */
+.resource-icon-wrapper {
+  flex-shrink: 0;
+  width: 3.5rem; 
+  height: 3.5rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1rem;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.resource-icon-video { background-color: #EF4444; }
+.resource-icon-pdf { background-color: #DC2626; }
+.resource-icon-link { background-color: #3B82F6; }
+.resource-icon-image { background-color: #10B981; }
+.resource-icon-other { background-color: #64748B; }
+
+/* "Open" Link (as text link) */
+.btn-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem; 
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 0; 
+  display: inline-block;
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+}
+.btn-link > span {
+  display: inline-block;
+  transition: transform 0.2s ease-out;
+}
+.btn-link:hover {
+  color: var(--accent-color); 
+}
+.btn-link:hover > span {
+  transform: translateX(4px);
+}
+
+
+/* ==================================
+ * ✨ 6. "MY PROFILE" STYLES ✨
+ * ==================================
+*/
+.profile-card-wrapper {
+  position: relative;
+  overflow: hidden; 
+  border: 2px solid transparent;
+  border-radius: 0.75rem; 
+  background-clip: padding-box; 
+  padding: 2px; 
+  background: linear-gradient(to right, var(--border-color), var(--border-color-hover));
+}
+
+.profile-card {
+  background: var(--bg-secondary);
+  border-radius: 0.6rem; 
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  gap: 1.5rem;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .profile-header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.profile-avatar {
+  width: 6rem;  
+  height: 6rem; 
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+  transition: all 0.3s ease; 
+}
+
+
+.profile-avatar.clickable {
+  cursor: pointer;
+}
+.profile-avatar.clickable:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(139, 92, 246, 0.4); 
+}
+
+
+.profile-info {
+  flex-grow: 1;
+}
+
+.profile-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.profile-email {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.profile-role-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--accent-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  margin-left: auto; 
+}
+@media (max-width: 767px) {
+  .profile-role-tag {
+    margin-left: 0; 
+  }
+}
+
+
+.profile-bio-section {
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+  animation: fadeInUp 0.4s ease-out; 
+}
+
+.bio-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.profile-bio {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap; 
+  font-style: italic;
+  opacity: 0.9;
+}
+
+
+.profile-bio-edit {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-primary); 
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: inherit;
+  resize: vertical;
+}
+.profile-bio-edit:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end; 
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-bio-edit {
+  margin-left: auto; 
+}
+
+
+/* ==================================
+ * ✨ 7. ❌ REMOVED: "MY PAST ATTEMPTS" STYLES ❌
+ * ==================================
+*/
+
+
+/* ==================================
+ * ✨ 8. LOADERS & ANIMATIONS ✨
+ * ==================================
+*/
+
+.loading-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 0; 
+  color: var(--text-secondary);
+  width: 100%;
+}
+.loading-placeholder p {
+  margin-top: 0.75rem;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.spinner {
+  width: 2.5rem; 
+  height: 2.5rem; 
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out;
+}

@@ -1,0 +1,576 @@
+/* src/index.css */
+/* ✅✅✅ ERROR FIX PANNAPATTADHU (Invalid Characters Removed) ✅✅✅ */
+
+/* ==========================================
+  1. BASE & THEME VARIABLES
+  ==========================================
+*/
+:root {
+  /* Light Mode Colors */
+  --primary-color: #4F46E5; /* Indigo-600 */
+  --primary-color-rgb: 79, 70, 229; /* ✅✅✅ ITHU THAAN PUTHIYA FIX ✅✅✅ */
+  --primary-color-dark: #3730A3; /* Indigo-800 */
+  --accent-color: #8B5CF6; /* Violet-500 */
+  --accent-color-dark: #7C3AED; /* Darker Violet */
+  --text-primary: #1E293B; /* Slate-800 */
+  --text-secondary: #64748B; /* Slate-500 */
+  --text-light: #F8FAFC; /* Slate-50 */
+  --bg-primary: #FFFFFF; /* White */
+  --bg-secondary: #F8FAFC; /* Slate-50 */
+  --bg-secondary-hover: #F1F5F9; /* Slate-100 */
+  --border-color: #E2E8F0; /* Slate-200 */
+  --danger-color: #EF4444; /* Red-500 */
+  --danger-color-hover: #DC2626; /* Red-700 */
+  --danger-color-light: #FEE2E2; /* Red-100 */
+  --success-color: #10B981; /* Emerald-500 */
+  --success-color-light: #ECFDF5; /* Emerald-50 */
+}
+
+/* Dark Mode Overrides */
+.dark {
+  --text-primary: #F8FAFC; /* Slate-50 */
+  --text-secondary: #94A3B8; /* Slate-400 */
+  --bg-primary: #0F172A; /* Slate-900 */
+  --bg-secondary: #1E293B; /* Slate-800 */
+  --bg-secondary-hover: #334155; /* Slate-700 */
+  --border-color: #334155; /* Slate-700 */
+  --danger-color-light: #450A0A; /* Red-950 (darker) */
+  --success-color-light: #064E3B; /* Emerald-950 (darker) */
+}
+
+/* Base Body Styles */
+body {
+  font-family: 'Inter', sans-serif; /* Using a modern font */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+  /* Visual bug (radial-gradient) removed */
+}
+
+/* Dark mode body kkum remove panniyachu */
+.dark body {
+  /* Inga irundha background-image yum remove panniyachu */
+}
+
+/* ==========================================
+  2. TYPOGRAPHY & HEADINGS
+  ==========================================
+*/
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.page-title {
+  font-size: 2.5rem; /* ~40px */
+  font-weight: 800; /* Extra bold */
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.section-header {
+  font-size: 1.875rem; /* ~30px */
+  font-weight: 700; /* Bold */
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1rem; /* ~16px */
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+  3. UI COMPONENTS: BUTTONS
+  ==========================================
+*/
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem; /* ~12px 24px */
+  border-radius: 0.5rem; /* 8px */
+  font-size: 0.9375rem; /* ~15px */
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  color: var(--text-light);
+  /* ✅✅✅ ERROR FIX ✅✅✅ Ippo var(--primary-color-rgb) work aagum */
+  box-shadow: 0 4px 15px rgba(var(--primary-color-rgb), 0.3);
+  transform: translateY(0); /* Base state for hover */
+}
+.btn-primary:hover {
+  transform: translateY(-2px); /* Lift effect */
+  box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.4);
+  filter: brightness(1.1); /* Slight glow */
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary-hover); /* Lighter background */
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.dark .btn-secondary {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-light);
+}
+.dark .btn-secondary:hover {
+  background-color: var(--bg-secondary-hover);
+  border-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: var(--text-light);
+}
+.btn-danger:hover {
+  background-color: var(--danger-color-hover);
+}
+
+/* Inga accent button kku definition add panrom, StudentDashboard.css la use aagudhu */
+.btn-accent-A {
+  background-color: var(--success-color);
+  color: var(--text-light);
+}
+.btn-accent-B {
+  background-color: var(--accent-color);
+  color: var(--text-light);
+}
+.btn-accent-A:hover, .btn-accent-B:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+
+.btn-link {
+  background: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+.btn-link:hover {
+  background-color: var(--bg-secondary-hover);
+  color: var(--primary-color-dark);
+}
+
+.btn-link-danger {
+  background: none;
+  color: var(--danger-color);
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+.btn-link-danger:hover {
+  background-color: var(--danger-color-light);
+  color: var(--danger-color-hover);
+}
+
+
+/* ==========================================
+  4. UI COMPONENTS: CARDS
+  ==========================================
+*/
+.card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem; /* 12px */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.card-body {
+  padding: 1.5rem; /* 24px */
+}
+
+.card-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Card Hover Effect */
+.card-hover:hover {
+  transform: translateY(-3px); /* Lift */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+}
+
+/* Card Lighting Effect */
+.card-lighting-effect {
+  position: relative;
+  overflow: hidden;
+}
+.card-lighting-effect::before {
+  content: '';
+  position: absolute;
+  left: var(--mouse-x, 50%);
+  top: var(--mouse-y, 50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at center, rgba(var(--primary-color-rgb), 0.15) 0%, transparent 80%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.card-lighting-effect:hover::before {
+  opacity: 1;
+}
+
+
+/* ==========================================
+  5. FORM ELEMENTS
+  ==========================================
+*/
+.form-group {
+  margin-bottom: 1rem; /* 16px */
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem; /* 8px */
+}
+
+.form-input,
+.form-select,
+.file-input-wrapper { /* Apply to custom file input wrapper */
+  display: block;
+  box-sizing: border-box; /* ✅✅✅ ITHUVUM ORU FIX ✅✅✅ */
+  width: 100%;
+  padding: 0.75rem 1rem; /* 12px 16px */
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem; /* 8px */
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.9375rem; /* 15px */
+  transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.file-input-wrapper:focus-within { /* For focus effect */
+  outline: none;
+  border-color: var(--primary-color);
+  /* ✅✅✅ ERROR FIX ✅✅✅ Ippo var(--primary-color-rgb) work aagum */
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.form-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* Custom File Input */
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0; /* Override default padding */
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.file-input-button {
+  flex-shrink: 0;
+  padding: 0.75rem 1rem; /* Same as input padding */
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border-radius: 0.5rem 0 0 0.5rem; /* Rounded left only */
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.file-input-wrapper:hover .file-input-button {
+  background-color: var(--primary-color-dark);
+}
+
+.file-input-text {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none; /* Make text not clickable */
+}
+
+/* ==========================================
+  6. UTILITY / HELPER CLASSES (Animations, Flex, Grid)
+  ==========================================
+*/
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Flexbox */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.flex-1 { flex: 1 1 0%; } /* flex-grow, flex-shrink, flex-basis */
+.flex-shrink-0 { flex-shrink: 0; }
+.flex-grow { flex-grow: 1; }
+.gap-1 { gap: 0.25rem; /* 4px */ }
+.gap-1\.5 { gap: 0.375rem; /* 6px */ }
+.gap-2 { gap: 0.5rem; /* 8px */ }
+.gap-3 { gap: 0.75rem; /* 12px */ }
+.gap-4 { gap: 1rem; /* 16px */ }
+.gap-6 { gap: 1.5rem; /* 24px */ }
+.gap-8 { gap: 2rem; /* 32px */ }
+.ml-auto { margin-left: auto; }
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+
+/* Grid */
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.col-span-full { grid-column: 1 / -1; }
+
+/* Text */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.italic { font-style: italic; }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Spacing */
+.mt-1 { margin-top: 0.25rem; }
+.mt-1\.5 { margin-top: 0.375rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-5 { margin-top: 1.25rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-1\.5 { margin-bottom: 0.375rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.pt-6 { padding-top: 1.5rem; }
+.py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-5 { padding: 1.25rem; }
+.p-6 { padding: 1.5rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.max-w-7xl { max-width: 90rem; }
+.min-h-screen { min-height: 100vh; }
+.min-w-0 { min-width: 0; } /* Important for flex items with truncate */
+
+/* Rounded corners */
+.rounded-md { border-radius: 0.375rem; } /* 6px */
+.rounded-lg { border-radius: 0.5rem; } /* 8px */
+.rounded-xl { border-radius: 0.75rem; } /* 12px */
+.rounded-full { border-radius: 9999px; } /* Circle */
+
+/* Other */
+.sticky { position: sticky; }
+.top-0 { top: 0; }
+.top-20 { top: 5rem; } /* 80px (assuming TopNav height) */
+.top-24 { top: 6rem; } /* 96px (extra space) */
+.z-10 { z-index: 10; }
+.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); }
+
+/* --- Responsive Utilities (Media Queries) --- */
+@media (min-width: 640px) { /* Small screens (sm) */
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .sm\:flex-row { flex-direction: row; }
+  .sm\:items-center { align-items: center; }
+  .sm\:gap-4 { gap: 1rem; }
+  .sm\:w-auto { width: auto; }
+}
+
+@media (min-width: 768px) { /* Medium screens (md) */
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .md\:flex-row { flex-direction: row; }
+  .md\:flex-col { flex-direction: column; }
+  .md\:items-start { align-items: flex-start; }
+  .md\:items-end { align-items: flex-end; }
+  .md\:w-auto { width: auto; }
+}
+
+@media (min-width: 1024px) { /* Large screens (lg) */
+  .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lg\:grid-cols-main-sidebar { grid-template-columns: 2fr 1fr; } /* Custom 2/3 & 1/3 layout */
+  .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+  .lg\:col-span-2 { grid-column: span 2 / span 2; }
+}
+
+/* Specific class for TopNav logo */
+.top-nav-logo-text:hover {
+  color: var(--primary-color);
+}
+
+
+/* ==========================================
+  7. TAKE TEST PAGE SPECIFIC STYLES
+  ==========================================
+*/
+.question-nav-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* 8px */
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.question-nav-btn {
+  width: 3rem; /* 48px */
+  height: 3rem; /* 48px */
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem; /* 8px */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.question-nav-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.question-nav-btn.status-not-answered {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+.question-nav-btn.status-answered {
+  background-color: var(--success-color-light);
+  border-color: var(--success-color);
+  color: var(--success-color);
+  font-weight: 700;
+}
+.question-nav-btn.status-marked {
+  background-color: #F3E8FF; /* Violet-50 */
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  font-weight: 700;
+}
+.question-nav-btn.status-marked-answered {
+  background: linear-gradient(135deg, var(--success-color-light) 50%, #F3E8FF 50%);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  font-weight: 700;
+}
+.question-nav-btn.status-current {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color-dark);
+  color: var(--text-light);
+  font-weight: 700;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(var(--primary-color-rgb), 0.3);
+}
+
+/* ==========================================
+  8. MODAL STYLES (for Query)
+  ==========================================
+*/
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s forwards;
+}
+
+.modal-content {
+  background-color: var(--bg-primary);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 32rem; /* 512px */
+  overflow: hidden;
+  position: relative;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.3s ease-out forwards;
+  padding: 1.5rem; /* p-6 */
+}
+
